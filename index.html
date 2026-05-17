@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gabriel Alfredo | Engenharia de Software</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #12121a; --accent: #7c3aed;
+      --accent2: #06b6d4; --text: #f0f0f5; --muted: #6b6b80; --border: #1e1e2e;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Syne', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center;
+      backdrop-filter: blur(12px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Space Mono', monospace; font-size: 0.85rem; color: var(--accent2); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .glow1 { position: fixed; top: 5%; left: -15%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .glow2 { position: fixed; bottom: 0; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 3rem 4rem; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-tag { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--accent2); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+    .hero-tag::before { content: ''; width: 2rem; height: 1px; background: var(--accent2); }
+    h1 { font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 800; line-height: 1.0; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .highlight { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-desc { font-size: 1.05rem; color: var(--muted); max-width: 540px; line-height: 1.8; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { padding: 0.85rem 1.8rem; border-radius: 4px; font-family: 'Space Mono', monospace; font-size: 0.78rem; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary { background: var(--accent); color: #fff; border: none; }
+    .btn-primary:hover { background: #6d28d9; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); }
+    .stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .stat-value { font-size: 2rem; font-weight: 800; color: var(--accent2); font-family: 'Space Mono', monospace; }
+    .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.3rem; }
+    section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .section-tag { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 3rem; letter-spacing: -0.02em; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .about-text p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; font-size: 0.95rem; }
+    .skills-label { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent2); margin-bottom: 1rem; letter-spacing: 0.1em; }
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag { padding: 0.35rem 0.9rem; border: 1px solid var(--border); border-radius: 2px; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); transition: all 0.2s; }
+    .skill-tag:hover { border-color: var(--accent2); color: var(--accent2); }
+    .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .exp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; position: relative; overflow: hidden; transition: border-color 0.2s; }
+    .exp-card:hover { border-color: var(--accent); }
+    .exp-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--accent), var(--accent2)); }
+    .exp-date { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent2); margin-bottom: 0.5rem; }
+    .exp-role { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .exp-company { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+    .exp-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; transition: all 0.25s; position: relative; overflow: hidden; }
+    .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform: scaleX(0); transition: transform 0.3s; }
+    .project-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .project-card:hover::before { transform: scaleX(1); }
+    .project-num { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); margin-bottom: 1rem; }
+    .project-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.7rem; }
+    .project-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.5rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .ptag { padding: 0.22rem 0.65rem; background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.2); border-radius: 2px; font-size: 0.68rem; font-family: 'Space Mono', monospace; color: var(--accent); }
+    .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .contact-box h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; }
+    .contact-box p { color: var(--muted); line-height: 1.7; font-size: 0.95rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 0.8rem; }
+    .contact-link { display: flex; align-items: center; gap: 1rem; padding: 0.9rem 1.2rem; border: 1px solid var(--border); border-radius: 6px; color: var(--text); text-decoration: none; transition: all 0.2s; font-family: 'Space Mono', monospace; font-size: 0.75rem; }
+    .contact-link:hover { border-color: var(--accent2); color: var(--accent2); }
+    footer { border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .footer-text { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--muted); }
+    @media(max-width:700px){ .about-grid,.contact-box{ grid-template-columns:1fr; gap:2rem; } .hero,.section{ padding-left:1.5rem; padding-right:1.5rem; } .nav-links{ display:none; } }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    .hero-tag { animation: fadeUp 0.5s 0.1s both; }
+    h1 { animation: fadeUp 0.5s 0.2s both; }
+    .hero-desc { animation: fadeUp 0.5s 0.3s both; }
+    .hero-btns { animation: fadeUp 0.5s 0.4s both; }
+    .stats { animation: fadeUp 0.5s 0.5s both; }
+  </style>
+</head>
+<body>
+<div class="glow1"></div>
+<div class="glow2"></div>
+
+<nav>
+  <span class="nav-logo">gabriel.alfredo</span>
+  <div class="nav-links">
+    <a href="#sobre">Sobre</a>
+    <a href="#experiencia">Experiência</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <div class="hero-tag">Estudante de Engenharia de Software</div>
+    <h1>Gabriel<br><span class="highlight">Alfredo.</span></h1>
+    <p class="hero-desc">Estudante de Engenharia de Software no UniCEUB, São Sebastião – DF. Proativo, organizado e em busca de oportunidades na área de tecnologia.</p>
+    <div class="hero-btns">
+      <a href="#projetos" class="btn btn-primary">Ver Projetos →</a>
+      <a href="#contato" class="btn btn-outline">Entre em Contato</a>
+    </div>
+    <div class="stats">
+      <div><div class="stat-value">2026</div><div class="stat-label">Início na Graduação</div></div>
+      <div><div class="stat-value">1+</div><div class="stat-label">Ano de Experiência</div></div>
+      <div><div class="stat-value">DF</div><div class="stat-label">São Sebastião, Brasília</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="sobre">
+  <div class="section-tag">// sobre mim</div>
+  <div class="section-title">Quem sou eu</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Tenho 18 anos e sou estudante de Engenharia de Software no UniCEUB, Brasília. Meu objetivo é desenvolver conhecimentos práticos na área de tecnologia e agregar valor às equipes em que faço parte.</p>
+      <p>Tive minha primeira experiência profissional como estagiário na Secretaria de Estado e Economia (SEEC-DF), onde atuei com planilhas, cadastros e organização de dados por mais de um ano.</p>
+      <p>Sou comprometido, curioso e sempre buscando aprender novas tecnologias.</p>
+    </div>
+    <div>
+      <div class="skills-label">// competências &amp; ferramentas</div>
+      <div class="skills-wrap">
+        <span class="skill-tag">Proatividade</span>
+        <span class="skill-tag">Organização</span>
+        <span class="skill-tag">Comprometimento</span>
+        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">Microsoft Access</span>
+        <span class="skill-tag">Pacote Office</span>
+        <span class="skill-tag">SEI | EVG</span>
+        <span class="skill-tag">Git & GitHub</span>
+        <span class="skill-tag">HTML & CSS</span>
+        <span class="skill-tag">Novas Tecnologias</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="section-tag">// trajetória</div>
+  <div class="section-title">Formação &amp; Experiência</div>
+  <div class="exp-list">
+    <div class="exp-card">
+      <div class="exp-date">2026 — ATUAL</div>
+      <div class="exp-role">Bacharel em Engenharia de Software</div>
+      <div class="exp-company">UniCEUB — Brasília, DF</div>
+      <div class="exp-desc">Graduação com foco em desenvolvimento de software, lógica de programação, versionamento com Git, banco de dados e engenharia de sistemas.</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-date">04/2024 — 12/2025</div>
+      <div class="exp-role">Estagiário</div>
+      <div class="exp-company">Secretaria de Estado e Economia — SEEC-DF</div>
+      <div class="exp-desc">Controle e atualização de planilhas em Excel; manutenção de cadastros no Microsoft Access; organização de pastas digitais; atendimento a requisições internas e apoio às rotinas administrativas do setor.</div>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="section-tag">// portfólio</div>
+  <div class="section-title">Projetos</div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-num">001</div>
+      <div class="project-title">Portfólio Pessoal</div>
+      <div class="project-desc">Site de portfólio desenvolvido em HTML e CSS para apresentar projetos, experiências e habilidades de forma profissional online.</div>
+      <div class="project-tags"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">GitHub Pages</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">002</div>
+      <div class="project-title">Repositório Acadêmico</div>
+      <div class="project-desc">Repositório organizado no GitHub para armazenar projetos e atividades do curso de Engenharia de Software com versionamento Git.</div>
+      <div class="project-tags"><span class="ptag">Git</span><span class="ptag">GitHub</span><span class="ptag">Markdown</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">003</div>
+      <div class="project-title">Em Desenvolvimento</div>
+      <div class="project-desc">Novos projetos em andamento como parte da formação em Engenharia de Software. Acompanhe as atualizações no GitHub.</div>
+      <div class="project-tags"><span class="ptag">Em Breve</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="section-tag">// contato</div>
+  <div class="section-title">Vamos conversar</div>
+  <div class="contact-box">
+    <div>
+      <h3>Aberto a oportunidades</h3>
+      <p>Estou em busca de oportunidades como estagiário ou jovem aprendiz na área de tecnologia. Se tiver uma vaga ou projeto interessante, entre em contato!</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:gabrieldealmeidaalfredo@gmail.com" class="contact-link">✉ gabrieldealmeidaalfredo@gmail.com</a>
+      <a href="tel:+5561995997601" class="contact-link">📱 (61) 99599-7601</a>
+      <a href="https://github.com/gabriel-alfredo" target="_blank" class="contact-link">⌥ github.com/gabriel-alfredo</a>
+      <a href="https://linkedin.com/in/gabriel-alfredo" target="_blank" class="contact-link">in linkedin.com/in/gabriel-alfredo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-text">© 2026 Gabriel de Almeida Alfredo</span>
+  <span class="footer-text">Engenharia de Software — UniCEUB</span>
+</footer>
+</body>
+</html>
