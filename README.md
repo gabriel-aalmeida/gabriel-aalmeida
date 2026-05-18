@@ -24,37 +24,33 @@
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ![Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
 ![Access](https://img.shields.io/badge/Microsoft_Access-A4373A?style=for-the-badge&logo=microsoft-access&logoColor=white)
-![Office](https://img.shields.io/badge/Microsoft_Office-D83B01?style=for-the-badge&logo=microsoft-office&logoColor=white)
 
 ---
 
 ## 📁 Estrutura do Repositório
 
-```
-📦 gabriel-alfredo
- ┣ 📂 academico/        → Projetos e atividades da faculdade
- ┣ 📂 pessoal/          → Projetos e experimentos pessoais
- ┣ 📂 portfolio/        → Site de portfólio (GitHub Pages)
- ┗ 📜 README.md         → Este arquivo
-```
+📦 gabriel-aalmeida
+┣ 📂 academico/        → Projetos e atividades da faculdade
+┣ 📂 pessoal/          → Projetos e experimentos pessoais
+┗ 📜 README.md         → Este arquivo
+
 
 ---
 
 ## 📊 GitHub Stats
 
 <div align="center">
-  <img height="160em" src="https://github-readme-stats.vercel.app/api?username=gabriel-alfredo&show_icons=true&theme=tokyonight&hide_border=true"/>
-  <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=gabriel-alfredo&layout=compact&theme=tokyonight&hide_border=true"/>
+  <img height="160em" src="https://github-readme-stats.vercel.app/api?username=gabriel-aalmeida&show_icons=true&theme=tokyonight&hide_border=true"/>
+  <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=gabriel-aalmeida&layout=compact&theme=tokyonight&hide_border=true"/>
 </div>
 
 ---
 
 ## 🌐 Portfólio & Contato
 
-- 🌍 **Site:** [gabriel-alfredo.github.io](https://gabriel-alfredo.github.io)
-- 💼 **LinkedIn:** [linkedin.com/in/gabriel-alfredo](https://linkedin.com/in/gabriel-alfredo)
+- 🌍 **Site Portfólio:** [Acesse aqui](https://gabriel-aalmeida.github.io)
+- 💼 **LinkedIn:** [Gabriel Almeida](https://www.linkedin.com/in/gabriel-almeida-90999a40b)
 - 📧 **E-mail:** gabrieldealmeidaalfredo@gmail.com
-- 📱 **Telefone:** (61) 99599-7601
 
 ---
 
