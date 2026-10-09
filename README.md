@@ -8,7 +8,7 @@
 
 ## 👨‍💻 Sobre mim
 
-- 🎓 Estudante de **Engenharia de Software** no **UniCEUB** (2026 – atual)
+- 🎓 Estudante de **Engenharia de Software** no **UniCEUB** (2026 – 2029)
 - 📍 São Sebastião, Brasília – DF
 - 💼 Ex-estagiário na **Secretaria de Estado e Economia – SEEC-DF**
 - 🚀 Em busca de oportunidades como **estagiário ou jovem aprendiz** em TI
@@ -37,12 +37,6 @@
 
 ---
 
-## 📊 GitHub Stats
-
-<div align="center">
-  <img height="160em" src="https://github-readme-stats.vercel.app/api?username=gabriel-aalmeida&show_icons=true&theme=tokyonight&hide_border=true"/>
-  <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=gabriel-aalmeida&layout=compact&theme=tokyonight&hide_border=true"/>
-</div>
 
 ---
 
