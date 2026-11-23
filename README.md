@@ -1,5 +1,12 @@
 # Olá, eu sou Gabriel Alfredo! 👋
 
+## Portfólio
+
+[![Prévia do portfólio de Gabriel de Almeida Alfredo, com o projeto Escape Room em C](https://gabriel-aalmeida.github.io/capa-portfolio.png)](https://gabriel-aalmeida.github.io/)
+
+[Acessar o portfólio](https://gabriel-aalmeida.github.io/)
+
+
 <div align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=7C3AED&center=true&vCenter=true&width=435&lines=Estudante+de+Engenharia+de+Software;Em+busca+de+oportunidades+em+TI;Proativo+e+sempre+aprendendo!" alt="Typing SVG" />
 </div>
